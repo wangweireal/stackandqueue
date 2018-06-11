@@ -45,7 +45,7 @@ class Queue(object):
 		return self.size() == 0	
 
 
-#use queue imitate	 stack
+#use queue imitate stack
 class StackByQueue(object):	
 	def __init__(self):
 		self.stack = Queue()
