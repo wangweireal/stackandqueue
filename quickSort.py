@@ -5,7 +5,7 @@ def partition(A,p,r):
 		if A[j]<=x:
 			i = i+1
 			A[i],A[j] = A[j],A[i]
-	A[i+1],A[r] = A[r],A[i]+1
+	A[i+1],A[r] = A[r],A[i+1]
 	return i+1
 
 def quickSort(A,p,r):
@@ -18,4 +18,23 @@ def quickSort(A,p,r):
 A = [2,8,7,1,3,5,6,4]
 
 quickSort(A,0,7)
-print(A)					
+print(A)
+
+
+
+    
+def findKthLargest(A, p, r, k):
+    if p <= r:
+        q = partition(A, p, r)
+        if k - 1 == q:
+            return A[q]
+        elif k - 1 < q:
+            return findKthLargest(A, p, q - 1, k)
+        else:
+            return findKthLargest(A, q + 1, r, k)
+
+A = [2, 8, 7, 1, 3, 5, 6, 4]
+
+findKthLargest(A, 0, 7, 8)	
+print(A)				
+
